@@ -12,9 +12,9 @@ import { UsersService } from './users.service';
     DatabaseModule.forFeature([
       { name: UserDocument.name, schema: UserSchema },
     ]),
-    LoggerModule,
   ],
   controllers: [UsersController],
   providers: [UsersService, UserRepository],
+  exports: [UsersService],
 })
 export class UsersModule {}
