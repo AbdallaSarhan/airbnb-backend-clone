@@ -1,11 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/airbnb-backend-clone/src",
+  "sourceRoot": "apps/reservations/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/airbnb-backend-clone/tsconfig.app.json"
+    "tsConfigPath": "apps/reservations/tsconfig.app.json"
   },
   "projects": {
     "common": {
@@ -17,15 +17,7 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "airbnb-backend-clone": {
-      "type": "application",
-      "root": "apps/airbnb-backend-clone",
-      "entryFile": "main",
-      "sourceRoot": "apps/airbnb-backend-clone/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/airbnb-backend-clone/tsconfig.app.json"
-      }
-    },
+
     "reservations": {
       "type": "application",
       "root": "apps/reservations",
@@ -37,5 +29,5 @@
     }
   },
   "monorepo": true,
-  "root": "apps/airbnb-backend-clone"
+  "root": "apps/reservations"
 }
