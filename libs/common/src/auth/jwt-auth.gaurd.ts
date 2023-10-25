@@ -5,9 +5,9 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { map, Observable, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { UserDto } from '../dto';
-import { AUTH_SERVICE } from './constants/services';
+import { AUTH_SERVICE } from '../constants/services';
 
 @Injectable()
 export class JwtAuthGaurd implements CanActivate {
@@ -29,6 +29,7 @@ export class JwtAuthGaurd implements CanActivate {
           context.switchToHttp().getRequest().user = res;
         }),
         map(() => true),
+        catchError(() => of(false)),
       );
   }
 }
