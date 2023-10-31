@@ -35,6 +35,8 @@ export class PaymentsService {
       },
     });
 
+    console.log({ paymentIntent });
+
     this.notificationService.emit('notify_email', {
       email,
       text: `Your payment of $${amount} has been recieved`,

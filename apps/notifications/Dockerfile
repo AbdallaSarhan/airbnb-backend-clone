@@ -4,13 +4,19 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
+COPY tsconfig.json tsconfig.json
+
 RUN npm install -g pnpm
 
 RUN pnpm install
 
-COPY . .
+# COPY . .
+COPY apps/notifications apps/notifications
+COPY libs libs
 
-RUN pnpm run build
+RUN cd apps/auth && pnpm install
+
+RUN pnpm run build notifications
 
 FROM node:alpine as production
 

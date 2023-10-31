@@ -2,10 +2,9 @@ import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { Response } from 'express';
 import { AuthService } from './auth.service';
-import { CurrentUser } from '@app/common';
+import { CurrentUser, UserDocument } from '@app/common';
 import { JwtAuthGaurd } from './gaurds/jwt-auth.gaurd';
 import { LocalAuthGaurd } from './gaurds/local-auth-gaurd';
-import { UserDocument } from './users/models/user.schema';
 
 @Controller('auth')
 export class AuthController {
